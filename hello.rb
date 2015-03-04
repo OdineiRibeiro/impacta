@@ -13,6 +13,6 @@ post '/java' do
   path = File.join(directory, name)
   File.open(path, "wb") { |f| f.write(tmpfile.read) }
   `javac #{path}`
-  puts `java #{name.split('.')[0]}`
+  `java #{name.split('.')[0]}`
 end
 
