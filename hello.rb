@@ -8,7 +8,7 @@ post '/java' do
   puts params.inspect
   puts params[:file]
   tmpfile = params[:file][:tempfile]
-  directory = './java'
+  directory = '/app/java'
   name = params[:file][:filename]
   path = File.join(directory, name)
   File.open(path, "wb") { |f| f.write(tmpfile.read) }
