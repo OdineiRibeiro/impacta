@@ -12,7 +12,7 @@ end
 
 post '/js' do
   cxt = V8::Context.new
-  js_code = 'function(){ console.log("teste"); };'
+  js_code = 'function(){ return "teste"; }'
   js = cxt.eval(js_code)
   js.to_s
 end
