@@ -12,7 +12,8 @@ end
 
 post '/js' do
   cxt = V8::Context.new
-  cxt.eval('7 * 6')
+  js = cxt.eval('7 * 6')
+  js.to_s
 end
 
 
