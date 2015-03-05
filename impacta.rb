@@ -1,10 +1,6 @@
 require 'sinatra'
 require 'v8'
 
-configure do
-  set :port, 8080
-end
-
 get '/' do
   "Faculdade Impacta de Tecnologia"
 end
