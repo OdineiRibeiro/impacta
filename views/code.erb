@@ -1,0 +1,32 @@
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script>
+    hljs.configure({useBR: true});
+    $('.code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+    $( ".code" ).keyup(function() {
+      console.log( "Handler for .keyup() called." );
+    });
+  </script>
+
+    <h1>TC^2</h1>
+
+    <div>
+      <form action="/java" method=post>
+
+        <textarea name='code' class='code' rows='40' cols='80'>
+public class Test {
+  public static void main(String[] args) {
+    // escreva seu código aqui
+  }
+}
+        </textarea>
+
+
+
+        <button type=submit>Executar</button>
+      </form>
+    </div>
