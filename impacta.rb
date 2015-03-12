@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'v8'
 require 'execjs'
-require 'debugger'
 
 get '/' do
   erb :code
