@@ -1,5 +1,7 @@
 require 'sinatra'
 require 'v8'
+require 'execjs'
+require 'debugger'
 
 get '/' do
   "Faculdade Impacta de Tecnologia"
@@ -11,10 +13,14 @@ get '/code' do
 end
 
 post '/js' do
-  cxt = V8::Context.new
-  js_code = 'var teste = "teste"; teste;'
-  js = cxt.eval(js_code)
-  js.to_s
+  # cxt = V8::Context.new
+  # js_code = 'var teste = "teste"; teste;'
+  # js = cxt.eval(js_code)
+  # js.to_s
+  debugger
+  code = params[:code]
+  context = ExecJS.compile("var ijs = #{code}")
+  context.call('ijs')
 end
 
 
