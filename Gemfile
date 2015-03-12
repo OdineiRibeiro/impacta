@@ -3,4 +3,7 @@ gem 'sinatra'
 
 gem 'therubyracer'
 gem 'execjs'
-gem 'debugger'
+
+group :development do
+  gem 'debugger'
+end
