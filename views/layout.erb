@@ -5,7 +5,21 @@
     <script src="js/jquery.js"></script>
     <script>
     $(function(){
-      alert('jquery');
+      $('#js, #c, #java').hide();
+      $("#code_java").click(function() {
+        $('#js, #c, #java').hide();
+        $('#java').show();
+      });
+      $("#code_js").click(function() {
+        console.log('js clicked');
+        $('#js, #c, #java').hide();
+        $('#js').show();
+      });
+      $("#code_c").click(function() {
+        console.log('c clicked');
+        $('#js, #c, #java').hide();
+        $('#c').show();
+      });
     });
     </script>
   </head>

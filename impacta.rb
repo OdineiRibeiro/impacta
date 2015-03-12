@@ -4,20 +4,10 @@ require 'execjs'
 require 'debugger'
 
 get '/' do
-  "Faculdade Impacta de Tecnologia"
-end
-
-get '/code' do
-  
   erb :code
 end
 
 post '/js' do
-  # cxt = V8::Context.new
-  # js_code = 'var teste = "teste"; teste;'
-  # js = cxt.eval(js_code)
-  # js.to_s
-  debugger
   code = params[:code]
   context = ExecJS.compile("var ijs = #{code}")
   context.call('ijs')
@@ -25,14 +15,30 @@ end
 
 
 post '/java' do
-  puts params.inspect
-  puts params[:file]
-  tmpfile = params[:file][:tempfile]
-  directory = '/app'
-  name = params[:file][:filename]
-  path = File.join(directory, name)
-  File.open(path, "wb") { |f| f.write(tmpfile.read) }
-  `javac #{path}`
-  `java #{name.split('.')[0]}`
+  `rm Teste.java Teste`
+  code = params[:code]
+  code = code.gsub('\r', ' ').gsub('\n', ' ').gsub('\t', ' ')
+  puts code
+  File.open('Teste.java', "wb") { |f| f.write(code) }
+  `javac Teste.java`
+  `java Teste`
+end
+
+post '/c' do
+  code = params[:code]
+  code = code.gsub('\r', ' ').gsub('\n', ' ').gsub('\t', ' ')
+  puts code
+  program_name  = [Time.now.to_i, (0..999).to_a.sample].map(&:to_s).join
+  source_code = program_name + '.c'
+  begin
+    file = File.open(source_code, "w")
+    file.write(code) 
+  rescue IOError => e
+    #some error occur, dir not writable etc.
+  ensure
+    file.close unless file == nil
+  end
+  `gcc -o #{program_name} #{source_code}`
+  `./#{program_name}`
 end
 

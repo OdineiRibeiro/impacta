@@ -1,48 +1,76 @@
 
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-  <script>
-    hljs.configure({useBR: true});
-    $('.code').each(function(i, block) {
-      hljs.highlightBlock(block);
-    });
-    $( ".code" ).keyup(function() {
-      console.log( "Handler for .keyup() called." );
-    });
-  </script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script>
+hljs.configure({useBR: true});
+$('.code').each(function(i, block) {
+  hljs.highlightBlock(block);
+});
+$( ".code" ).keyup(function() {
+  console.log( "Handler for .keyup() called." );
+});
+</script>
 
-    <h1>TC^2</h1>
+<h1>TCC Impacta</h1>
 
+<div id="languages">
+  <img src="img/java.png" width="100" id="code_java"> <img src="img/js.png" width="100" id="code_js"> <img src="img/c.png" width="100" id="code_c">
+</div>
+
+<div id="java">
 <h2>Java</h2>
-    <div>
-      <form action="/java" method=post>
 
-        <textarea name='code' class='code' rows='40' cols='80'>
-public class Test {
-  public static void main(String[] args) {
-    // escreva seu código aqui
-  }
-}
-        </textarea>
+  <form action="/java" method=post>
 
-
-
-        <button type=submit>Executar</button>
-      </form>
-    </div>
-<br>
-<hr>
-<h2>Javascript</h2>
-    <div>
-      <form action="/js" method=post>
-
-        <textarea name='code' class='code' rows='40' cols='80'>
-
-        </textarea>
+    <textarea name='code' class='code' rows='40' cols='80'>
+      public class Teste {
+        public static void main(String[] args) {
+          // escreva seu maldito código aqui
+          System.out.println("Olá Javaboy!");
+        }
+      }
+    </textarea>
 
 
 
-        <button type=submit>Executar</button>
-      </form>
-    </div>
+    <button type=submit>Executar</button>
+  </form>
+
+</div>
+<div id="js">
+  <h2>Javascript</h2>
+    <form action="/js" method=post>
+
+      <textarea name='code' class='code' rows='40' cols='80'>
+function() {
+  // escreva seu maldito código aqui
+  return "Javascript é chick!"
+}        
+
+      </textarea>
+
+
+
+      <button type=submit>Executar</button>
+    </form>
+</div>
+<div id="c">
+<h2>C</h2>
+  <form action="/c" method=post>
+
+    <textarea name='code' class='code' rows='40' cols='80'>
+      #include<stdio.h>
+
+      main()
+      {
+          printf("Oi escovador de bits!");
+      }
+
+    </textarea>
+
+
+
+    <button type=submit>Executar</button>
+  </form>
+</div>
