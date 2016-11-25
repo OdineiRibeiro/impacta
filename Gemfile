@@ -1,9 +1,12 @@
 source 'https://rubygems.org'
-gem 'sinatra'
 
+gem 'sinatra'
 gem 'therubyracer'
 gem 'execjs'
 
+gem 'rubocop'
+
 group :development do
-  gem 'debugger'
+  # gem 'debugger'
+  gem 'pry'
 end
