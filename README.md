@@ -9,6 +9,6 @@ Forkado do [kayaman/impacta](https://github.com/kayaman/impacta)
 
 # Comofas?
 
-- bundle install
-- ruby impacta.rb
+- ```bundle install```
+- ```ruby impacta.rb```
 - visite localhost:4567
